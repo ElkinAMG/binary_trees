@@ -27,8 +27,12 @@ binary_tree_t *binary_trees_ancestor(FIRST, SECOND)
 				return (p_first);
 			else if (p_second == first)
 				return (p_second);
+			else if (p_first == second)
+				return (p_second);
 			else if (p_first == p_second->parent)
 				return (p_second->parent);
+			else if (p_second == p_first->parent)
+				return (p_first->parent);
 
 			return (binary_trees_ancestor(p_first, p_second));
 		}
