@@ -15,7 +15,7 @@ binary_tree_t *binary_trees_ancestor(FIRST, SECOND)
 {
 	binary_tree_t *p_first, *p_second;
 
-	if (first || second)
+	if (first && second)
 	{
 		p_first = first->parent;
 		p_second = second->parent;
