@@ -17,16 +17,14 @@ int binary_tree_is_full(const binary_tree_t *tree)
 			return (1);
 
 		is_full = binary_tree_is_full(tree->left);
+		if (!is_full)
+			return (0);
 
-		if (is_full)
-	        {
-			is_full = binary_tree_is_full(tree->right);
+		is_full = binary_tree_is_full(tree->right);
 
-			if (tree->parent)
-				if (BOTH_CHILDREN || NO_CHILDREN)
-					return (1);
-		}
-
+		if (tree->parent && is_full)
+			if (BOTH_CHILDREN || NO_CHILDREN)
+				return (1);
 	}
 
 	return (is_full);
