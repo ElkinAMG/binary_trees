@@ -1,8 +1,5 @@
 #include "binary_trees.h"
 
-#define BOTH_CHILDREN (tree->left && tree->right)
-#define NO_CHILDREN (!tree->left && !tree->right)
-
 /**
  * binary_tree_is_full - It checks whether or not a btree is full.
  * @tree: It's a pointer to the root node of a tree.
@@ -20,13 +17,16 @@ int binary_tree_is_full(const binary_tree_t *tree)
 			return (1);
 
 		is_full = binary_tree_is_full(tree->left);
-		if (!is_full)
-			return (0);
-		is_full = binary_tree_is_full(tree->right);
 
-		if (tree->parent && is_full)
-			if (BOTH_CHILDREN || NO_CHILDREN)
-				return (1);
+		if (is_full)
+	        {
+			is_full = binary_tree_is_full(tree->right);
+
+			if (tree->parent)
+				if (BOTH_CHILDREN || NO_CHILDREN)
+					return (1);
+		}
+
 	}
 
 	return (is_full);

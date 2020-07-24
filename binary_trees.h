@@ -4,6 +4,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+#define BOTH_CHILDREN (tree->left && tree->right)
+#define NO_CHILDREN (!tree->left && !tree->right)
+
 /**
  * struct binary_tree_s - Binary tree node
  *
